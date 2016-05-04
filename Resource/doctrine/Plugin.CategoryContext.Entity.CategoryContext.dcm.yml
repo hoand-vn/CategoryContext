@@ -1,0 +1,18 @@
+Plugin\CategoryContext\Entity\CategoryContext:
+    type: entity
+    table: plg_category_content
+    repositoryClass: Plugin\CategoryContext\Repository\CategoryContextRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            column: category_id
+            generator:
+                strategy: NONE
+    fields:
+        content:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

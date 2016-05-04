@@ -1,0 +1,8 @@
+name: CategoryContext
+code: CategoryContext
+version: 1.0.0
+event: CategoryContextEvent
+service:
+    - CategoryContextServiceProvider
+orm.path:
+    - /Resource/doctrine

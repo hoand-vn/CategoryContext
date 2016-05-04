@@ -1,0 +1,4 @@
+admin.product.category.index.initialize:
+    - [onAdminProductCategoryInit, NORMAL]
+admin.product.category.index.complete:
+    - [onAdminProductCategoryEditComplete, NORMAL] 
