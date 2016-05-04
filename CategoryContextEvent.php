@@ -94,5 +94,33 @@ class CategoryContextEvent
         $app['orm.em']->persist($CategoryContent);
         $app['orm.em']->flush($CategoryContent);
     }
+    public function onRenderProductList(TemplateEvent  $event)
+    {
+         $parameters = $event->getParameters();
 
+        // カテゴリIDがない場合、レンダリングしない
+        if (is_null($parameters['Category'])) {
+            return;
+        }
+
+        // 登録がない、もしくは空で登録されている場合、レンダリングをしない
+        $Category = $parameters['Category'];
+        $CategoryContent = $this->app['category_context.repository.category_context']
+            ->find($Category->getId());
+        if (is_null($CategoryContent) || $CategoryContent->getContent() == '') {
+            return;
+        }
+
+        // twigコードにカテゴリコンテンツを挿入
+        // $snipet = '<div class="row">'.$CategoryContent->getContent().'</div>';
+        $snipet = '<div class="row">{{ CategoryContent.content }}</div>';
+        $search = '<div id="result_info_box"';
+        $replace = $snipet.$search;
+        $source = str_replace($search, $replace, $event->getSource());
+        $event->setSource($source);
+
+        // twigパラメータにカテゴリコンテンツを追加
+        $parameters['CategoryContent'] = $CategoryContent;//only for twig
+        $event->setParameters($parameters);//only for twig
+    }
 }
