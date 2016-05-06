@@ -12,6 +12,11 @@ use Plugin\CategoryContext\Entity\CategoryContext;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 
+/**
+ * Class CategoryContextEvent
+ * @package Plugin\CategoryContext
+ * author : Hoa.Nguyen
+ */
 
 class CategoryContextEvent
 {
