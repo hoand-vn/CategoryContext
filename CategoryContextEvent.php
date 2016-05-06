@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
  * Class CategoryContextEvent
  * @package Plugin\CategoryContext
  * author : Hoa.Nguyen
- * test it gain comment 1111 222 333  444 555
+ * test it gain comment 1111 222 333  444 555 666
  */
 
 class CategoryContextEvent
