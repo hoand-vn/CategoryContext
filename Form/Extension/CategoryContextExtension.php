@@ -1,4 +1,3 @@
-
 <?php
 namespace Plugin\CategoryContext\Form\Extension;
 
